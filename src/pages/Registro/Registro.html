@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Registro</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class ="bg-registro">
+    <ion-list>
+
+      <ion-item>
+        <ion-label stacked>NOMBRE Y APELLIDOS</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>CORREO ELECTRONICO </ion-label>
+        <ion-input type="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>CONTRASEÑA</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>CONFIRMAR CONTRASEÑA</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>COMUNIDAD</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>DIRECCIÓN</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+
+
+       <label class = "checkbox">
+       <input type = "checkbox" />
+       <b>Acepto las condiciones del registro</b>
+       </label>
+
+
+
+      <div padding>
+      <button ion-button (click) ="irApp()" color="secondary" block>LISTO</button>
+     </div>
+
+
+</ion-content>

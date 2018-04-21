@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Inicio de sesión</ion-title>
+  </ion-navbar>
+</ion-header>
+
+  <ion-content padding class="bg-inicioSesion">
+    <ion-list>
+
+      <ion-item>
+        <ion-label stacked>Correo electronico</ion-label>
+        <ion-input type="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Contraseña</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <div padding>
+      <button ion-button  (click) ="irApp()" color="primary" block>Entrar</button>
+    </div>
+</ion-content>
