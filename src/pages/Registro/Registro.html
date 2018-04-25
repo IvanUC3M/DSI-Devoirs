@@ -8,22 +8,22 @@
 
       <ion-item>
         <ion-label stacked>NOMBRE Y APELLIDOS</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-
+        <ion-input type="text" [(ngModel)]="name"></ion-input>
+	</ion-item>
+ 
       <ion-item>
         <ion-label stacked>CORREO ELECTRONICO </ion-label>
-        <ion-input type="email"></ion-input>
+        <ion-input type="email" [value]="correo" [(ngModel)]="email"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label stacked>CONTRASEÑA</ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-label stacked id="p">CONTRASEÑA</ion-label>
+        <ion-input type="password" [(ngModel)]="password"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label stacked>CONFIRMAR CONTRASEÑA</ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-input type="password" [(ngModel)]="secondpassword"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -33,20 +33,20 @@
 
       <ion-item>
         <ion-label stacked>DIRECCIÓN</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" [(ngModel)]="address"></ion-input>
       </ion-item>
     </ion-list>
 
 
        <label class = "checkbox">
-       <input type = "checkbox" />
+       <input type = "checkbox" [(ngModel)]="checkbox"/>
        <b>Acepto las condiciones del registro</b>
        </label>
 
 
 
       <div padding>
-      <button ion-button (click) ="irApp()" color="secondary" block>LISTO</button>
+      <button ion-button (click) ="irPrincipal()" color="secondary" block>LISTO</button>
      </div>
 
 

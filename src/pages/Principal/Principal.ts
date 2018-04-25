@@ -7,7 +7,7 @@ import {RegistroPage} from '../Registro/Registro';
   selector: 'page-principal',
   templateUrl: 'Principal.html'
 })
-export class PrincipalPage {
+export class PrincipalPage{
 
   constructor(public navCtrl: NavController) {
 

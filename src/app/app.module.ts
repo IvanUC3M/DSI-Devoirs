@@ -2,6 +2,9 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
 
 import { InicioPage } from '../pages/Inicio/Inicio';
 import { CarritoPage } from '../pages/Carrito/Carrito';
@@ -14,6 +17,15 @@ import { PrincipalPage } from '../pages/Principal/Principal';
 import { RegistroPage } from '../pages/Registro/Registro';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+export const fireBaseConfig={
+apiKey: "AIzaSyA9COxghIHgJCqOcev9I4rNt11I33ctxIo",
+    authDomain: "devoirs-efd11.firebaseapp.com",
+    databaseURL: "https://devoirs-efd11.firebaseio.com",
+    projectId: "devoirs-efd11",
+    storageBucket: "",
+    messagingSenderId: "69980728743"};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -30,6 +42,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp)
+	,AngularFireModule.initializeApp(fireBaseConfig),AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -45,9 +58,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage
   ],
   providers: [
+    FirebaseDbProvider,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })
 export class AppModule {}
