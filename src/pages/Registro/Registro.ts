@@ -4,17 +4,23 @@ import { PrincipalPage } from '../Principal/Principal';
 import {Cliente} from '../../models/cliente.model';
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 
-
+ 
 @Component({
   selector: 'page-registro',
   templateUrl: 'Registro.html'
 })
 export class RegistroPage {
- constructor(public navCtrl: NavController,public dbFirebase:FirebaseDbProvider) {
+ name: string;
+ password: string;
+ email: string;
+ secondpassword: string;
+ address: string;
+ checkbox: string;
+ constructor(public navCtrl: NavController,public dbFirebase:FirebaseDbProvider, /*public name: String, public password: String, public email: String, public address: String, public secondpassword: String, public checkbox: Number*/) {
 }
-  irPrincipal(){
+  irPrincipal(){  
 	  let datoscliente:Cliente=new Cliente();
-	  datoscliente.id=""+Date.now();
+	  datoscliente.id=""+Date.now(); 
 	  datoscliente.nombre=this.name;
 	  datoscliente.contraseña=this.password;
 	  datoscliente.correo=this.email;

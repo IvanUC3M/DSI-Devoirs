@@ -9,12 +9,31 @@ import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
   templateUrl: 'InicioSesion.html'
 })
 export class InicioSesionPage {
-
+  email: string;
+  password: string;
+  listaClientes:any;
   constructor(public navCtrl: NavController,public dbFirebase:FirebaseDbProvider) {
 
   }
-  listaClientes:any;
+  ionViewDidEnter()
+  {
+	  this.dbFirebase.getClientes().subscribe(listaClientes=>{this.listaClientes=listaClientes;});
+  }
   irApp(){
-      this.navCtrl.push(TabsPage);
+	  var list = this.listaClientes;
+	  var email = this.email;
+	  var password = this.password;
+	  for(var cliente in list)
+	  {
+		if(list[cliente].correo == email)
+		{
+				if(list[cliente].contraseña == password)
+				{
+					      this.navCtrl.push(TabsPage);	//Hay que pasarle parametros
+						  return;
+				}
+		}
+	  }
+	alert("Email o contraseña incorrectos");
     }
 }
