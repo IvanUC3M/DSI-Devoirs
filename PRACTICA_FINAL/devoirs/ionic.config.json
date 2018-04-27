@@ -1,8 +1,0 @@
-{
-  "name": "devoirs",
-  "app_id": "c964446b",
-  "type": "ionic-angular",
-  "integrations": {
-    "cordova": {}
-  }
-}
