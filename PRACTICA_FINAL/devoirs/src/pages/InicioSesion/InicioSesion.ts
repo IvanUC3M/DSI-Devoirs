@@ -29,7 +29,7 @@ export class InicioSesionPage {
 		{
 				if(list[cliente].contraseña == password)
 				{
-					      this.navCtrl.push(TabsPage);	//Hay que pasarle parametros
+					      this.navCtrl.push(TabsPage,{lista:list});	//Hay que pasarle parametros
 						  return;
 				}
 		}

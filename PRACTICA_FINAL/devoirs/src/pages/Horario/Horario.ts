@@ -6,7 +6,7 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'Horario.html'
 })
 export class HorarioPage {
-
+  
   constructor(public navCtrl: NavController) {
 
   }

@@ -6,7 +6,9 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
 
+import {NotasServicios} from "../servicios/notas.servicios";
 import { InicioPage } from '../pages/Inicio/Inicio';
+import { DetalleNotaPage } from '../pages/detalle-nota/detalle-nota';
 import { CarritoPage } from '../pages/Carrito/Carrito';
 import { HorarioPage } from '../pages/Horario/Horario';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -26,6 +28,8 @@ apiKey: "AIzaSyA9COxghIHgJCqOcev9I4rNt11I33ctxIo",
     storageBucket: "",
     messagingSenderId: "69980728743"};
 
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -36,13 +40,14 @@ apiKey: "AIzaSyA9COxghIHgJCqOcev9I4rNt11I33ctxIo",
   InicioSesionPage,
   PrincipalPage,
   PerfilPage,
+  DetalleNotaPage,
   RegistroPage,
     TabsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
-	,AngularFireModule.initializeApp(fireBaseConfig),AngularFireDatabaseModule
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(fireBaseConfig),AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -55,6 +60,7 @@ apiKey: "AIzaSyA9COxghIHgJCqOcev9I4rNt11I33ctxIo",
   InicioSesionPage,
   RegistroPage,
   PerfilPage,
+  DetalleNotaPage,
     TabsPage
   ],
   providers: [
@@ -62,6 +68,7 @@ apiKey: "AIzaSyA9COxghIHgJCqOcev9I4rNt11I33ctxIo",
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    NotasServicios
   ]
 })
 export class AppModule {}
