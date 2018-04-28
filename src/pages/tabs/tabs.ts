@@ -15,7 +15,7 @@ export class TabsPage {
   tab3Root = CarritoPage;
   tab4Root = GastosPage;
   tab5Root = PerfilPage;
-
+  lista=null;
   constructor() {
 
   }
