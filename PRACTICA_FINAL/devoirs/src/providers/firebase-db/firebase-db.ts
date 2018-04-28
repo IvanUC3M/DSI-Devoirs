@@ -33,6 +33,24 @@ export class FirebaseDbProvider {
   {
 	  this.afDB.database.ref('clientes/'+id).remove();
   }
+  
+  guardaNota(nota:Nota)
+  {
+	  if (nota.id=='') {nota.id=""+Date.now();}
+	  return this.afDB.database.ref('notas/'+nota.id).set(nota);
+  }
+  
+  delNota(id)
+  {
+	  this.afDB.database.ref('notas/'+id).remove();
+  }
+  
+  private notasRef=this.afDB.list<Nota>('notas');
+  
+  getNotas()
+  {
+	 return this.notasRef.valueChanges();
+  }
 
 
 }

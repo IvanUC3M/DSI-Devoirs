@@ -67,7 +67,6 @@ notas=[];
 listaNotas:any;
  @ViewChild('myNav') nav: NavController
 constructor(public navCtrl: NavController, public navParams: NavParams, public notasServicio : NotasServicios, public dbFirebase:FirebaseDbProvider) {
-this.listaDeNotas = this.navParams.get("notaLista");
 this.notas=notasServicio.getNotas();
 }
 public irDetalleNota(id){
@@ -82,10 +81,24 @@ ionViewDidEnter()
 {
 	this.dbFirebase.getNotas().subscribe(listaNotas=>{this.listaNotas=listaNotas;
 		var list = this.listaNotas;
+		var igual = 0;
 		for(var nnota in list)
 		{
-			var updateNote = {id: list[nnota].id, propietario: list[nnota].propietario,descripcion: list[nnota].propietario}
-			this.notas.push(updateNote);;
+			for (var inota in this.notas)
+			{
+				if(this.notas[inota].id == list[nnota].id)
+				{
+					igual = 1;
+				}
+			}
+			if(igual == 0)
+			{	
+			var updateNote = {id: list[nnota].id, propietario: list[nnota].propietario,descripcion: list[nnota].descripcion};
+			this.notas.push(updateNote);
+			}
+			else{
+			igual=0;	
+			}
 		}
 	});
 }
