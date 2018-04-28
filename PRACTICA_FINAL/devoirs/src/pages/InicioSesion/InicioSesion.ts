@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+import { InicioPage } from '../Inicio/Inicio';
 import {Cliente} from '../../models/cliente.model';
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 
@@ -12,15 +13,18 @@ export class InicioSesionPage {
   email: string;
   password: string;
   listaClientes:any;
+  listaNotas:any;
   constructor(public navCtrl: NavController,public dbFirebase:FirebaseDbProvider) {
 
   }
   ionViewDidEnter()
   {
 	  this.dbFirebase.getClientes().subscribe(listaClientes=>{this.listaClientes=listaClientes;});
+	  
   }
   irApp(){
 	  var list = this.listaClientes;
+	  var notas = this.listaNotas;
 	  var email = this.email;
 	  var password = this.password;
 	  for(var cliente in list)
@@ -29,7 +33,7 @@ export class InicioSesionPage {
 		{
 				if(list[cliente].contraseña == password)
 				{
-					      this.navCtrl.push(TabsPage,{lista:list});	//Hay que pasarle parametros
+					      this.navCtrl.push(TabsPage,{lista:notas});	//Hay que pasarle parametros
 						  return;
 				}
 		}

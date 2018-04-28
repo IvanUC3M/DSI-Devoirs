@@ -1,8 +1,9 @@
 import { Component,ViewChild } from '@angular/core';
-import { NavController} from 'ionic-angular';
+import { NavController, NavParams} from 'ionic-angular';
 import {NotasServicios} from "../../servicios/notas.servicios";
 import {DetalleNotaPage} from "../detalle-nota/detalle-nota";
-
+import { TabsPage } from '../tabs/tabs';
+import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 
 @Component({
   selector: 'page-inicio',
@@ -62,10 +63,11 @@ goToNextMonth() {
   this.getDaysOfMonth();
 }
 
-
 notas=[];
+listaNotas:any;
  @ViewChild('myNav') nav: NavController
-constructor(public navCtrl: NavController, public notasServicio : NotasServicios) {
+constructor(public navCtrl: NavController, public navParams: NavParams, public notasServicio : NotasServicios, public dbFirebase:FirebaseDbProvider) {
+this.listaDeNotas = this.navParams.get("notaLista");
 this.notas=notasServicio.getNotas();
 }
 public irDetalleNota(id){
@@ -74,6 +76,17 @@ this.navCtrl.push(DetalleNotaPage,{id:id});
 }
 public crearNota(){
 this.navCtrl.push(DetalleNotaPage,{id:0});
+}
 
+ionViewDidEnter()
+{
+	this.dbFirebase.getNotas().subscribe(listaNotas=>{this.listaNotas=listaNotas;
+		var list = this.listaNotas;
+		for(var nnota in list)
+		{
+			var updateNote = {id: list[nnota].id, propietario: list[nnota].propietario,descripcion: list[nnota].propietario}
+			this.notas.push(updateNote);;
+		}
+	});
 }
 }
