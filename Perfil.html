@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Mi perfil
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="perfil">
+  <div>
+  <img src="../assets/imgs/devoirs.png"  width="75" height="50">
+  </div>
+
+
+<div class="principal">
+
+  <div class="im">
+  <img class= "imagen" src="../assets/imgs/perfil.jpg">
+  <h5>Osvaldo</h5>
+
+    <p class="bold">e-mail:</p><p> {{ email }} </p>
+    <p class="bold">Actualmente reside en:</p><p> {{ residencia }}</p>
+    <p class="bold">Gasto semanal:</p><p>{{ gastoSemanal }}</p>
+    <p class="bold">Gasto mensual:</p><p>{{ gastoMensual }}</p>
+    <p class="bold">Gasto anual:</p><p>{{ gastoAnual }}</p>
+
+    <button class="buttonHor">
+      <p width="70%">Pedir cambio en el horario <ion-icon class="buu" name="clock"></ion-icon> </p>
+    </button>
+    <button class="buttonMod">
+      <p width="70%">Modificar campos <ion-icon class="buu" name="build"></ion-icon> </p>
+    </button>
+  </div>
+</div>
+
+</ion-content>
+<ion-footer>
+    <div class="ayuda">
+        <a href="http://www.marca.com{{hash}}">¿ Necesitas ayuda ?</a>
+    </div>
+</ion-footer>

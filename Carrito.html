@@ -1,0 +1,48 @@
+
+
+<!--Header-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      Carrito
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class= "carrito" >
+
+    <div>
+      <img src="../assets/imgs/devoirs.png"  width="75" height="50">
+    </div>
+
+    <div>
+      <button class="button button-icon ion-minus-circled">
+      </button>
+      </div>
+
+  <ion-list inset >
+
+    <button ion-item *ngFor="let item of items">
+      {{ item }}
+    </button>
+        <ion-icon class="ion-minus-circled"></ion-icon>
+  </ion-list>
+    <div class = "add-rem" ion-item>
+      <div id = "aña">  Añadir </div>
+      <form id ="fform" (submit)="newitem(elem)"><input #elem type="search"></form>
+    </div>
+<!-- Poner el color del boton a    -->
+    <div class = "add-rem">
+    <button (click)="allItems()" ion-item>
+      Compra realizada
+      <ion-icon name="basket" item-end></ion-icon>
+    </button>
+  </div>
+</ion-content>
+
+<ion-footer>
+    <div class="ayuda">
+        <a href="http://www.marca.com{{hash}}">¿ Necesitas ayuda ?</a>
+    </div>
+</ion-footer>
