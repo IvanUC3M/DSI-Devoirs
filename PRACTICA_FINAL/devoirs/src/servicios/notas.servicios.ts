@@ -2,10 +2,7 @@ import {Injectable} from "@angular/core";
 
 @Injectable()
 export class NotasServicios{
-  notas=[
-    {id:1, propietario:"Nota 1", descripcion:"Descripcion 1"},
-    {id:2, propietario:"Nota 2", descripcion:"Descripcion 2"},
-    {id:3, propietario:"Nota 3", descripcion:"Descripcion 3"}
+  notas=[ 
   ];
 
   public getNotas(){

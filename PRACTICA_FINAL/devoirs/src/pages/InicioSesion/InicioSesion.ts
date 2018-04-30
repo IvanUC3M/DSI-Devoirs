@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
-import { InicioPage } from '../Inicio/Inicio';
-import {Cliente} from '../../models/cliente.model';
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 
 @Component({

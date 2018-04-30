@@ -2,7 +2,7 @@
   <ion-navbar>
     <ion-title>Horario</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> 
 
 <ion-content padding>
   <div>
@@ -11,7 +11,8 @@
 <div padding>
   <ion-list>
     <button ion-item *ngFor="let tarea of tareas" (click)="irDetalleTarea(tarea.id)">
-      {{tarea.fecha}}
+      <p>{{tarea.fecha  | date:'dd/MM/yyyy'}}  {{tarea.hora}}  {{tarea.persona}}</p>
+	  <p>{{tarea.actividad}}</p>
     </button>
   </ion-list>
   <div padding>

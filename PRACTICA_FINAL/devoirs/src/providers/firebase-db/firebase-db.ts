@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase} from 'angularfire2/database';
 import {Cliente} from '../../models/cliente.model';
 import {Nota} from '../../models/nota.model';
+import {Tarea} from '../../models/tarea.model';
 /*
   Generated class for the FirebaseDbProvider provider.
 
@@ -52,5 +53,22 @@ export class FirebaseDbProvider {
 	 return this.notasRef.valueChanges();
   }
 
-
+  
+  guardaTarea(tarea:Tarea)
+  {
+	  if (tarea.id=='') {tarea.id=""+Date.now();}
+	  return this.afDB.database.ref('tareas/'+tarea.id).set(tarea);
+  }
+  
+  delTarea(id)
+  {
+	  this.afDB.database.ref('tareas/'+id).remove();
+  }
+  
+  private tareasRef=this.afDB.list<Tarea>('tareas');
+  
+  getTareas()
+  {
+	 return this.tareasRef.valueChanges();
+  }
 }

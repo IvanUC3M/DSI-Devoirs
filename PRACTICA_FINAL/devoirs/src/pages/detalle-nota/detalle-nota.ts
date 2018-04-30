@@ -52,7 +52,6 @@ this.navCtrl.pop();
 eliminarNota(){
   this.notasServicio.eliminarNota(this.nota);
   this.dbFirebase.delNota(this.nota.id);  
-  alert(this.id);
   alert("Nota eliminada con éxito");
   this.navCtrl.pop();
 }

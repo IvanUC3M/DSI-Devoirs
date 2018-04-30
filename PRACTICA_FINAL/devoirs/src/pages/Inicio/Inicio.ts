@@ -2,7 +2,6 @@ import { Component,ViewChild } from '@angular/core';
 import { NavController, NavParams} from 'ionic-angular';
 import {NotasServicios} from "../../servicios/notas.servicios";
 import {DetalleNotaPage} from "../detalle-nota/detalle-nota";
-import { TabsPage } from '../tabs/tabs';
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 
 @Component({
@@ -76,9 +75,13 @@ this.navCtrl.push(DetalleNotaPage,{id:id});
 public crearNota(){
 this.navCtrl.push(DetalleNotaPage,{id:0});
 }
-
+ionViewWillEnter()
+{
+	this.getDaysOfMonth(); 
+}
 ionViewDidEnter()
 {
+	
 	this.dbFirebase.getNotas().subscribe(listaNotas=>{this.listaNotas=listaNotas;
 		var list = this.listaNotas;
 		var igual = 0;
