@@ -61,8 +61,9 @@ id:null;
 	this.dbFirebase.guardaTarea(datostarea);   
 	this.navCtrl.pop();
  }
- eliminartarea(){
+ eliminarTarea(){
    this.tareasServicio.eliminarTarea(this.tarea);
+   this.dbFirebase.delTarea(this.tarea.id);  
    alert("Se ha eliminado la tarea del horario");
    this.navCtrl.pop();
  }

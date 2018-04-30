@@ -71,4 +71,9 @@ export class FirebaseDbProvider {
   {
 	 return this.tareasRef.valueChanges();
   }
+  
+   delTarea(id)
+  {
+	  this.afDB.database.ref('tareas/'+id).remove();
+  }
 }
