@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { NavParams} from 'ionic-angular';
 import { InicioPage } from '../Inicio/Inicio';
 import { CarritoPage } from '../Carrito/Carrito';
 import { HorarioPage } from '../Horario/Horario';
@@ -15,8 +15,9 @@ export class TabsPage {
   tab3Root = CarritoPage;
   tab4Root = GastosPage;
   tab5Root = PerfilPage;
-
-  constructor() {
-
+  notaLista:any;
+  lista=null;
+  constructor( public navParams: NavParams) {
+	this.notaLista = this.navParams.get("lista");
   }
 }
