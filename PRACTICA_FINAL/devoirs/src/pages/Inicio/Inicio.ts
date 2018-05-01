@@ -76,7 +76,10 @@ this.navCtrl.push(DetalleNotaPage,{id:id});
 public crearNota(){
 this.navCtrl.push(DetalleNotaPage,{id:0});
 }
-
+ionViewWillEnter()
+{
+	this.getDaysOfMonth();
+}
 ionViewDidEnter()
 {
 	this.dbFirebase.getNotas().subscribe(listaNotas=>{this.listaNotas=listaNotas;
@@ -94,7 +97,7 @@ ionViewDidEnter()
 			if(igual == 0)
 			{	
 			var updateNote = {id: list[nnota].id, propietario: list[nnota].propietario,descripcion: list[nnota].propietario};
-			this.notas.push(updateNote);
+			this.notas.splice(0,0,updateNote);
 			}
 			else{
 			igual=0;	

@@ -31,7 +31,7 @@ export class InicioSesionPage {
 		{
 				if(list[cliente].contraseña == password)
 				{
-					      this.navCtrl.push(TabsPage,{lista:notas});	//Hay que pasarle parametros
+					      this.navCtrl.push(TabsPage,{id:list[cliente].id});	//Hay que pasarle parametros
 						  return;
 				}
 		}

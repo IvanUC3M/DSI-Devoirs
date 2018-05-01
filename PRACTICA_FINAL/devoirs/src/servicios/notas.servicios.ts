@@ -2,11 +2,7 @@ import {Injectable} from "@angular/core";
 
 @Injectable()
 export class NotasServicios{
-  notas=[
-    {id:1, propietario:"Nota 1", descripcion:"Descripcion 1"},
-    {id:2, propietario:"Nota 2", descripcion:"Descripcion 2"},
-    {id:3, propietario:"Nota 3", descripcion:"Descripcion 3"}
-  ];
+  notas=[]; 
 
   public getNotas(){
 return this.notas;
@@ -16,7 +12,7 @@ public getNota(id){
   return this.notas.filter(function(e, i){return e.id==id})[0] || {id:null, propietario:null,descripcion:null};
 }
 public crearNota(nota){
-this.notas.push(nota);
+this.notas.splice(0,0,nota);
 }
 
 public editarNota(nota){

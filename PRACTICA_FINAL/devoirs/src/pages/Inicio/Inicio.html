@@ -37,6 +37,7 @@
        </ion-row>
      </ion-grid>
    </div>
+   <button ion-button block (click)="crearNota()"> Crear Nota </button>
    <div padding>
    <ion-list>
      <button ion-item *ngFor="let nota of notas" (click)="irDetalleNota(nota.id)">
@@ -44,7 +45,6 @@
      </button>
    </ion-list>
    <div padding>
-   <button ion-button block (click)="crearNota()"> Crear Nota </button>
  </div>
  </div>
 </ion-content>

@@ -43,7 +43,7 @@ if(this.id!=0){
   alert("Nota creada con éxito");
     }
 let datosnota:Nota=new Nota();
-datosnota.id=this.nota.id; 
+datosnota.id=this.nota.id;  
 datosnota.propietario=this.nota.propietario;
 datosnota.descripcion=this.nota.descripcion;
 this.dbFirebase.guardaNota(datosnota);  

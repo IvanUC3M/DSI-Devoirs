@@ -25,6 +25,7 @@ export class RegistroPage {
 	  datoscliente.contraseña=this.password;
 	  datoscliente.correo=this.email;
 	  datoscliente.direccion=this.address;
+	  datoscliente.gasto=0;
 	  var contraseña2 = this.secondpassword;
 	  var comprobacion = this.checkbox;
 	  if(!datoscliente.nombre || !datoscliente.correo || !datoscliente.contraseña || !datoscliente.direccion || !contraseña2 )

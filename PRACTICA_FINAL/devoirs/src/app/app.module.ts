@@ -11,6 +11,7 @@ import {NotasServicios} from "../servicios/notas.servicios";
 import { InicioPage } from '../pages/Inicio/Inicio';
 import { DetalleNotaPage } from '../pages/detalle-nota/detalle-nota';
 import { DetalleTareaPage } from '../pages/detalle-tarea/detalle-tarea';
+import {CompraFinalPage} from '../pages/compra-final/compra-final';
 import { CarritoPage } from '../pages/Carrito/Carrito';
 import { HorarioPage } from '../pages/Horario/Horario';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -44,6 +45,7 @@ apiKey: "AIzaSyA9COxghIHgJCqOcev9I4rNt11I33ctxIo",
   PerfilPage,
   DetalleNotaPage,
   DetalleTareaPage,
+  CompraFinalPage,
   RegistroPage,
     TabsPage
   ],
@@ -64,6 +66,7 @@ apiKey: "AIzaSyA9COxghIHgJCqOcev9I4rNt11I33ctxIo",
   RegistroPage,
   PerfilPage,
   DetalleNotaPage,
+  CompraFinalPage,
   DetalleTareaPage,
     TabsPage
   ],

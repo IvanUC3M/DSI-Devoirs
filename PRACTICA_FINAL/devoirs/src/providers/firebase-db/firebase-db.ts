@@ -4,6 +4,7 @@ import { AngularFireDatabase} from 'angularfire2/database';
 import {Cliente} from '../../models/cliente.model';
 import {Nota} from '../../models/nota.model';
 import {Tarea} from '../../models/tarea.model';
+import {Compra} from "../../models/carrito.model";
 /*
   Generated class for the FirebaseDbProvider provider.
 
@@ -70,5 +71,23 @@ export class FirebaseDbProvider {
   getTareas()
   {
 	 return this.tareasRef.valueChanges();
+  }
+  
+    
+  guardaCompra(compra:Compra)
+  {
+	  return this.afDB.database.ref('compras/'+compra.id).set(compra);
+  }
+  
+  delCompra(id)
+  {
+	  this.afDB.database.ref('compras/'+id).remove();
+  }
+  
+  private comprasRef=this.afDB.list<Compra>('compras');
+  
+  getCompras()
+  {
+	 return this.comprasRef.valueChanges();
   }
 }
