@@ -20,12 +20,10 @@ export class DetalleNotaPage {
 propietario: string;
 descripcion: string;
 nota={id:null, propietario:null, descripcion: null};
+notas:any;
 id=null;
   constructor(public navCtrl: NavController, public navParams: NavParams,public notasServicio:NotasServicios, public dbFirebase:FirebaseDbProvider) {
     this.id=navParams.get("id");
-    if(this.id!=0){
-      this.nota=notasServicio.getNota(this.id);
-    }
   }
 
   ionViewDidLoad() { 
@@ -54,6 +52,24 @@ eliminarNota(){
   this.dbFirebase.delNota(this.nota.id);  
   alert("Nota eliminada con éxito");
   this.navCtrl.pop();
+}
+
+ionViewDidEnter()
+{
+	if(this.id !=0)
+	{
+	this.dbFirebase.getNotas().subscribe(listaNotas=>{this.notas=listaNotas;
+	for(var nlist in this.notas)
+	{
+			if(this.notas[nlist].id==this.id)
+			{
+					this.propietario=this.notas[nlist].propietario;
+					this.descripcion=this.notas[nlist].descripcion;
+					this.nota={id:this.id, propietario:this.propietario, descripcion:this.descripcion};
+			}
+	}
+	});
+	}
 }
 
 }

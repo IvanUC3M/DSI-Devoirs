@@ -22,6 +22,9 @@ public editarNota(nota){
     }
   }
 }
+public updateNotas(nnotas){
+  this.notas=nnotas;
+}
 public eliminarNota(nota){
  for(let i=0;i<this.notas.length;i++){
     if(this.notas[i]==nota){

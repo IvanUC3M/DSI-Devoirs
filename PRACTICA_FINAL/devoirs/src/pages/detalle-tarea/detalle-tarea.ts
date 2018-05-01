@@ -18,6 +18,11 @@ import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 export class DetalleTareaPage {
 tarea={id:null,fecha:null,actividad:null,persona:null,hora:null};
 id:null;
+fecha:null;
+persona:null;
+hora:null;
+actividad:null;
+tareas:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public tareasServicio:TareasServicios, public dbFirebase:FirebaseDbProvider) {
   this.id=navParams.get("id");
   if(this.id!=0){
@@ -67,4 +72,20 @@ id:null;
    alert("Se ha eliminado la tarea del horario");
    this.navCtrl.pop();
  }
+ ionViewDidEnter()
+{
+	this.dbFirebase.getTareas().subscribe(listaTareas=>{this.tareas=listaTareas;
+	for(var nlist in this.tareas)
+	{
+			if(this.tareas[nlist].id==this.id)
+			{//fecha:null,actividad:null,persona:null,hora:null
+					this.fecha=this.tareas[nlist].fecha;
+					this.actividad=this.tareas[nlist].actividad;
+					this.persona=this.tareas[nlist].persona;
+					this.hora=this.tareas[nlist].hora;
+					this.tarea={id:this.id, persona:this.persona, actividad:this.actividad, hora: this.hora, fecha: this.fecha};
+			}
+	}
+	});
+}
 }

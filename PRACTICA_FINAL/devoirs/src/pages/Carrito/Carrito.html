@@ -23,7 +23,7 @@
 
   <ion-list inset >
     <ion-item *ngFor="let item of items">
-	<ion-label>{{item}}</ion-label>
+	<ion-label>{{item.compra}}</ion-label>
 	<button ion-button color="danger" clear item-right (click)="borrarCompra(item)">Borrar</button>
 	<ion-checkbox></ion-checkbox>
     </ion-item>
@@ -42,9 +42,3 @@
     </button>
   </div>
 </ion-content>
-
-<ion-footer>
-    <div class="ayuda">
-        <a href="http://www.marca.com{{hash}}">¿ Necesitas ayuda ?</a>
-    </div>
-</ion-footer>

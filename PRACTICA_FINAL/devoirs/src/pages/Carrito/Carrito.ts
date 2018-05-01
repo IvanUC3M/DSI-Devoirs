@@ -9,22 +9,18 @@ import {Compra} from "../../models/carrito.model";
 })
 
 export class CarritoPage {
-  items: string[];
-  elem: string;
-  ident: string[];
+  items:any[];
+  elem: any;
   item: {id:null, compra:null}
   listaCompras:any;
   clientId:any;
   constructor(public navCtrl: NavController,public params: NavParams,public dbFirebase:FirebaseDbProvider){
-    this.items = [];
-	this.ident = [];
 	this.clientId = this.params.get('id');
   }
 
   newitem(elem){
-    this.items.push(elem.value);
+    this.items.push(elem);
 	var identificador = ""+Date.now();
-	this.ident.push(identificador);
     let datoscompra:Compra=new Compra();
 	datoscompra.id=identificador;
 	datoscompra.compra=elem.value;
@@ -39,19 +35,12 @@ export class CarritoPage {
 borrarCompra(item){
 	let index = this.items.indexOf(item);
 	this.items.splice(index,1);
-	this.dbFirebase.delCompra(this.ident[index]); 
+	this.dbFirebase.delCompra(item.id); 
 }
 
 ionViewDidEnter()
 {
-	this.dbFirebase.getCompras().subscribe(listaCompras=>{this.listaCompras=listaCompras;
-		var list = this.listaCompras;
-		this.items=[];
-		for(var ncompra in list)
-		{
-			this.items.push(list[ncompra].compra);
-			this.ident.push(list[ncompra].id);
-		}
+	this.dbFirebase.getCompras().subscribe(listaCompras=>{this.items=listaCompras;
 	});
 }
 }
