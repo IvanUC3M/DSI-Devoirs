@@ -1,4 +1,5 @@
 page-inicio {
+
   [col-1] {
       -webkit-box-flex: 0;
       -webkit-flex: 0 0 8.33333%;
@@ -7,6 +8,16 @@ page-inicio {
       width: 14.285714285714286%;
       max-width: 14.285714285714286%;
     }
+.princ{
+  background: #c7edff;
+}
+
+.notes{
+
+  margin-top: 10%;
+}
+
+
     .col {
       text-align: center;
       padding: 5px;
@@ -25,6 +36,8 @@ page-inicio {
       border-radius: 30px;
     }
     .calendar-header {
+      color:#fff;
+      background: green;
       background-color: "primary";
       color: "primary";
     }
@@ -55,11 +68,13 @@ page-inicio {
         margin: 0;
       }
       .calendar-weekday {
-        font-weight: bold;
+
+        color:#fff;
         border-bottom: solid 1px #1a732d;
         background-color: #26ab56;
       }
       .calendar-date {
+        background: #FFFFFF;
         border-top: solid 1px #1a732d;
         border-bottom: solid 1px #1a732d;
       }

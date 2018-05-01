@@ -43,7 +43,7 @@ export class RegistroPage {
 		  alert("Las contraseñas no coinciden");
 		  return;
 	  }
-	  this.dbFirebase.guardaCliente(datoscliente)
+	  this.dbFirebase.guardaCliente(datoscliente);
 	  this.navCtrl.push(PrincipalPage);
 
     }
