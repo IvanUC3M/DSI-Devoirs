@@ -5,7 +5,7 @@ export class Cliente {
 	public correo: string;
     public contraseña: string;
     public direccion: string;
-	
+	public gasto: number;
 	constructor()
 	{
 		this.id="";

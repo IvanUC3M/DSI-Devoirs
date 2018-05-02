@@ -1,4 +1,8 @@
+
+
+<!--Header-->
 <ion-header>
+
   <ion-navbar>
     <ion-title>
       Carrito
@@ -7,23 +11,37 @@
 </ion-header>
 
 <ion-content class= "carrito" >
-  <div>
-  <img src="../assets/imgs/devoirs.png"  width="75" height="50">
-  </div>
 
-  <button>
-    
-  </button>
+    <div>
+      <img src="../assets/imgs/devoirs.png"  width="75" height="50">
+    </div>
 
+    <div>
+      <button class="button button-icon ion-minus-circled">
+      </button>
+      </div>
 
-  <ion-list inset>
-    <button ion-item *ngFor="let item of items">
-      {{ item }}
-    </button>
+  <ion-list inset >
+    <ion-item *ngFor="let item of items">
+	<ion-label>{{item.compra}}</ion-label>
+	<button ion-button color="danger" clear item-right (click)="borrarCompra(item)">Borrar</button>
+	<ion-checkbox></ion-checkbox>
+    </ion-item>
+        <ion-icon class="ion-minus-circled"></ion-icon>
   </ion-list>
 
+    <div class = "add-rem" ion-item>
+      <div id = "aña">  Añadir </div>
+      <form id ="fform" (submit)="newitem(elem)"><input #elem type="search"></form>
+    </div>
+<!-- Poner el color del boton a    -->
+    <div class = "add-rem">
+    <button (click)="allItems()" ion-item>
+      Compra realizada
+      <ion-icon name="basket" item-end></ion-icon>
+    </button>
+  </div>
+  <button id="buttonHelp" ion-button small (click)="needHelp()">
+    <p width="70%">Ayuda </p>
+  </button>
 </ion-content>
-
-<ion-footer>
-  ¿Necesitas ayuda?
-</ion-footer>

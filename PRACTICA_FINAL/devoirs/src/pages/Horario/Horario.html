@@ -4,8 +4,25 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="Hor">
   <div>
   <img src="../assets/imgs/devoirs.png"  width="75" height="50">
   </div>
+<div padding>
+  <ion-list>
+    <button id="but" ion-item *ngFor="let tarea of tareas" (click)="irDetalleTarea(tarea.id)">
+      <p>{{tarea.fecha  | date:'dd/MM/yyyy'}}  {{tarea.hora}} </p>
+	    <p>{{tarea.actividad}}</p>
+      <p align="right">{{tarea.persona}}</p>
+      <ion-icon ios="ios-more" md="md-more"></ion-icon>
+    </button>
+
+  </ion-list>
+  <div padding>
+  <button padding ion-button block (click)="crearTarea()" >Crear Tarea </button>
+  </div>
+</div>
+<button id="buttonHelp" ion-button small (click)="needHelp()">
+  <p width="70%">Ayuda </p>
+</button>
 </ion-content>

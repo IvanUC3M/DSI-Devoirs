@@ -1,3 +1,92 @@
 page-inicio {
 
+  [col-1] {
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 8.33333%;
+      -ms-flex: 0 0 8.33333%;
+      flex: 0 0 14.285714285714286%;
+      width: 14.285714285714286%;
+      max-width: 14.285714285714286%;
+    }
+.princ{
+  background: #c7edff;
+}
+#buttonHelp{
+  width: 90%;
+  position: relative;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom:5%;
+  float:left;
+  color:#000;
+  background-color: rgba(0, 0, 0,0);
+}
+
+.notes{
+
+  margin-top: 10%;
+}
+
+
+    .col {
+      text-align: center;
+      padding: 5px;
+    }
+    .last-month, .next-month {
+      color: #999999;
+      font-size: 90%;
+    }
+    .currentDate, .otherDate {
+      padding: 5px;
+    }
+    .currentDate {
+      font-weight: bold;
+      background-color: red;
+      color: white;
+      border-radius: 30px;
+    }
+    .calendar-header {
+      color:#fff;
+      background: green;
+      background-color: "primary";
+      color: "primary";
+    }
+    .event-bullet {
+      margin: 2px auto;
+      height: 5px;
+      width: 5px;
+      background-color: green;
+      border-radius: 30px;
+    }
+    .selected-date {
+      width: 20px;
+      height: 2px;
+      background-color: blue;
+    }
+    .unselected-date {
+      border: none;
+    }
+    .calendar-body {
+      .grid {
+        padding: 0;
+      }
+      .col:last-child {
+        border-right: none;
+      }
+      .calendar-weekday, .calendar-date {
+        text-align: center;
+        margin: 0;
+      }
+      .calendar-weekday {
+
+        color:#fff;
+        border-bottom: solid 1px #1a732d;
+        background-color: #26ab56;
+      }
+      .calendar-date {
+        background: #FFFFFF;
+        border-top: solid 1px #1a732d;
+        border-bottom: solid 1px #1a732d;
+      }
+    }
 }
