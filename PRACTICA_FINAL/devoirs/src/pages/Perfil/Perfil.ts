@@ -8,7 +8,6 @@ import { AlertController } from 'ionic-angular';
   selector: 'page-perfil',
   templateUrl: 'Perfil.html'
 })
-<<<<<<< HEAD
 
 export class PerfilPage {
   listaClientes:any;
@@ -50,39 +49,6 @@ export class PerfilPage {
   alert.present();
 }
 
-=======
-
-export class PerfilPage {
-  listaClientes:any;
-  clientId:any;
-  nombre:any;
-  email:any;
-  residencia:any;
-  gastos:any;
-  constructor(public navCtrl: NavController,public params: NavParams,public dbFirebase:FirebaseDbProvider, private alertCtrl: AlertController) {
-  this.clientId = this.params.get('id');
- }
-
- ionViewDidEnter()
- { 
-	  this.dbFirebase.getClientes().subscribe(listaClientes=>{this.listaClientes=listaClientes;
-	  var list = this.listaClientes;
-	  for(var icliente in list)
-		{
-			if(this.clientId == list[icliente].id)
-			{
-					this.nombre = list[icliente].nombre;
-					this.email = list[icliente].correo;
-					this.residencia = list[icliente].direccion;
-					this.gastos = list[icliente].gasto;
-					return;
-			}
-		}
-	  
-	  });
- }
- 
->>>>>>> c49e1239a869325b7797c796e0a20c9a1e6d01e8
  editarPerfil() {
   let alert = this.alertCtrl.create({
     title: 'Edita tus datos',
@@ -127,11 +93,7 @@ export class PerfilPage {
 					datoscliente.nombre=data.nombre;
 				}
 				datoscliente.contraseña=list[icliente].contraseña;
-<<<<<<< HEAD
 
-=======
-				
->>>>>>> c49e1239a869325b7797c796e0a20c9a1e6d01e8
 				if(data.email == null)
 				{
 					datoscliente.correo=list[icliente].correo;
@@ -148,11 +110,7 @@ export class PerfilPage {
 				{
 					datoscliente.direccion=data.direccion;
 				}
-<<<<<<< HEAD
 				datoscliente.gasto=list[icliente].gasto;
-=======
-				datoscliente.gasto=list[icliente].gasto;	
->>>>>>> c49e1239a869325b7797c796e0a20c9a1e6d01e8
 			}
 			}
 			this.dbFirebase.guardaCliente(datoscliente);
@@ -161,9 +119,5 @@ export class PerfilPage {
     ]
   });
   alert.present();
-<<<<<<< HEAD
-}
-=======
->>>>>>> c49e1239a869325b7797c796e0a20c9a1e6d01e8
 }
 }

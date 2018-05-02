@@ -3,11 +3,8 @@ import {CompraFinalPage} from "../compra-final/compra-final";
 import {NavController, NavParams} from 'ionic-angular';
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 import {Compra} from "../../models/carrito.model";
-<<<<<<< HEAD
 import { AlertController } from 'ionic-angular';
 
-=======
->>>>>>> c49e1239a869325b7797c796e0a20c9a1e6d01e8
 @Component({
   selector: 'page-carrito',
   templateUrl: 'Carrito.html'
@@ -19,11 +16,7 @@ export class CarritoPage {
   item: {id:null, compra:null}
   listaCompras:any;
   clientId:any;
-<<<<<<< HEAD
   constructor(public navCtrl: NavController,public params: NavParams,public dbFirebase:FirebaseDbProvider,private alertCtrl: AlertController){
-=======
-  constructor(public navCtrl: NavController,public params: NavParams,public dbFirebase:FirebaseDbProvider){
->>>>>>> c49e1239a869325b7797c796e0a20c9a1e6d01e8
 	this.clientId = this.params.get('id');
   }
 
@@ -33,7 +26,6 @@ export class CarritoPage {
     let datoscompra:Compra=new Compra();
 	datoscompra.id=identificador;
 	datoscompra.compra=elem.value;
-<<<<<<< HEAD
 	this.dbFirebase.guardaCompra(datoscompra);
 
 }
@@ -56,22 +48,6 @@ needHelp(){
  });
  alert.present();
 }
-=======
-	this.dbFirebase.guardaCompra(datoscompra);  
-    
-}
-
-  allItems(){
-	this.navCtrl.push(CompraFinalPage,{id:this.clientId});
-}
-
-borrarCompra(item){
-	let index = this.items.indexOf(item);
-	this.items.splice(index,1);
-	this.dbFirebase.delCompra(item.id); 
-}
-
->>>>>>> c49e1239a869325b7797c796e0a20c9a1e6d01e8
 ionViewDidEnter()
 {
 	this.dbFirebase.getCompras().subscribe(listaCompras=>{this.items=listaCompras;

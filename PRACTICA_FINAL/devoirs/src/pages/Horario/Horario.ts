@@ -3,10 +3,7 @@ import { NavController } from 'ionic-angular';
 import {TareasServicios} from "../../servicios/tareas.servicios";
 import {DetalleTareaPage} from "../detalle-tarea/detalle-tarea";
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
-<<<<<<< HEAD
 import { AlertController } from 'ionic-angular';
-=======
->>>>>>> c49e1239a869325b7797c796e0a20c9a1e6d01e8
 
 @Component({
   selector: 'page-horario',
@@ -17,11 +14,7 @@ export class HorarioPage {
   listaTareas:any;
   aux:any;
   @ViewChild('myNav') nav: NavController
-<<<<<<< HEAD
   constructor(public navCtrl: NavController,public tareasServicio:TareasServicios,public dbFirebase:FirebaseDbProvider,private alertCtrl: AlertController) {
-=======
-  constructor(public navCtrl: NavController,public tareasServicio:TareasServicios,public dbFirebase:FirebaseDbProvider) {
->>>>>>> c49e1239a869325b7797c796e0a20c9a1e6d01e8
     this.tareas=tareasServicio.getTareas();
   }
 public irDetalleTarea(id){
@@ -30,7 +23,6 @@ public irDetalleTarea(id){
 public crearTarea(){
   this.navCtrl.push(DetalleTareaPage,{id:0});
 }
-<<<<<<< HEAD
 needHelp(){
  let alert = this.alertCtrl.create({
    title: '¿Necesitas ayuda?',
@@ -40,8 +32,6 @@ needHelp(){
  });
  alert.present();
 }
-=======
->>>>>>> c49e1239a869325b7797c796e0a20c9a1e6d01e8
 
 ionViewDidEnter()
 {
