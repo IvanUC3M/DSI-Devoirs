@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Mi perfil
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="perfil">
+  <div>
+  <img src="../assets/imgs/devoirs.png"  width="75" height="50">
+  </div>
+
+
+<div class="principal">
+
+  <div class="im">
+  <img class= "imagen" src="../assets/imgs/perfil.png">
+  <h5>{{ nombre }}</h5>
+
+    <p class="bold">e-mail:</p><p> {{ email }} </p>
+    <p class="bold">Direccion:</p><p> {{ residencia }}</p>
+    <p class="bold">Gastos:</p><p>{{ gastos }} €</p>
+
+    <button id="buttonMod" ion-button (click)="editarPerfil()">
+      <p width="70%">Modificar campos <ion-icon class="buu" name="build"></ion-icon> </p>
+    </button>
+
+  </div>
+</div>
+
+<button id="buttonHelp" ion-button small (click)="needHelp()">
+  <p width="70%">Ayuda </p>
+</button>
+
+</ion-content>
