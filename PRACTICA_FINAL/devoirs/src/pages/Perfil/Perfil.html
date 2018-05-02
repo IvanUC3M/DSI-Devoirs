@@ -22,15 +22,10 @@
     <p class="bold">Direccion:</p><p> {{ residencia }}</p>
     <p class="bold">Gastos:</p><p>{{ gastos }} €</p>
 
-    <button id="buttonMod" ion-button (click)="editarPerfil()">
+    <button class="buttonMod" (click)="editarPerfil()">
       <p width="70%">Modificar campos <ion-icon class="buu" name="build"></ion-icon> </p>
     </button>
-
   </div>
 </div>
-
-<button id="buttonHelp" ion-button small (click)="needHelp()">
-  <p width="70%">Ayuda </p>
-</button>
 
 </ion-content>

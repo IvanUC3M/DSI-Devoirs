@@ -4,11 +4,35 @@
   </ion-navbar>
 </ion-header>
 
- <ion-content padding>
+ <ion-content class="Gastos">
    <div>
    <img src="../assets/imgs/devoirs.png" width="75" height="50">
    </div>
-   <button id="buttonHelp" ion-button small (click)="needHelp()">
-     <p width="70%">Ayuda </p>
-   </button>
+   <div>
+     <button class="button button-icon ion-minus-circled">
+     </button>
+     </div>
+
+     <ion-list inset >
+       <ion-item *ngFor="let item of items">
+   	<ion-label>{{item.concepto}} {{item.gasto}} €</ion-label>
+   	<button ion-button color="danger" clear item-right (click)="borrarGasto(item)">Borrar</button>
+       </ion-item>
+           <ion-icon class="ion-minus-circled"></ion-icon>
+     </ion-list>
+
+     <div class = "add-rem" ion-item>
+       <div id="concept">
+         <div id = "aña">  Concepto </div>
+         <input #elem type="search" [(ngModel)]="concepto">
+       </div><br>
+       <div id="concept">
+         <div id = "aña">  Gasto </div>
+          <input #elem type="search2" [(ngModel)]="gasto"> €
+         <button ion-button color="blue" (click)="newitem()"> crear gasto</button>
+       </div>
+     </div>
+     <button class="buttonMod" (click)="pagar()">
+       <p width="70%">Modificar campos <ion-icon class="buu" name="build"></ion-icon> </p>
+     </button>
  </ion-content>

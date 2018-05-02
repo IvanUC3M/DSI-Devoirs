@@ -4,7 +4,6 @@ import {NotasServicios} from "../../servicios/notas.servicios";
 import {DetalleNotaPage} from "../detalle-nota/detalle-nota";
 import { TabsPage } from '../tabs/tabs';
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
-import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-inicio',
@@ -64,12 +63,11 @@ goToNextMonth() {
   this.getDaysOfMonth();
 }
 
-
 notas=[];
 listaNotas:any;
 
  @ViewChild('myNav') nav: NavController
-constructor(public navCtrl: NavController, public navParams: NavParams, public notasServicio : NotasServicios, public dbFirebase:FirebaseDbProvider, private alertCtrl: AlertController) {
+constructor(public navCtrl: NavController, public navParams: NavParams, public notasServicio : NotasServicios, public dbFirebase:FirebaseDbProvider) {
 this.notas=notasServicio.getNotas();
 
 
@@ -87,15 +85,7 @@ ionViewWillEnter()
 {
 	this.getDaysOfMonth();
 }
-needHelp(){
- let alert = this.alertCtrl.create({
-   title: '¿Necesitas ayuda?',
-   subTitle: 'Ayuda en página de Inicio',
-   message:'¡Vaya! Parece que tienes problemas. En esta página podrás añadir, o editar notificaciones, que serán leidas por todos los integrantes de la vivienda. Para ello simplemente prueba a pulsar en una nota para editarla, o bien, en crear nota para crear una nueva nota. El botón crear nota te ofrecerá una serie de campos en los que podrás introducir, tanto tu mensaje, como la fecha en la que ha sido escrito. Si sigues teniendo dudas envianos tu pregunta a devoirs@gmail.com .',
-   buttons: ['Dismiss']
- });
- alert.present();
-}
+
 ionViewDidEnter()
 {
 	this.dbFirebase.getNotas().subscribe(listaNotas=>{this.notas=listaNotas;

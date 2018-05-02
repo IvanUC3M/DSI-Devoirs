@@ -21,7 +21,7 @@ export class PerfilPage {
  }
 
  ionViewDidEnter()
- {
+ { 
 	  this.dbFirebase.getClientes().subscribe(listaClientes=>{this.listaClientes=listaClientes;
 	  var list = this.listaClientes;
 	  for(var icliente in list)
@@ -35,20 +35,10 @@ export class PerfilPage {
 					return;
 			}
 		}
-
+	  
 	  });
  }
-
- needHelp(){
-  let alert = this.alertCtrl.create({
-    title: '¿Necesitas ayuda?',
-    subTitle: 'Ayuda en página Perfil',
-    message:'¡Vaya! Parece que tienes problemas. En esta página podrás ver los datos de tu perfil además del gasto acumulado hasta el momento. Si algún campo es incorrecto, o ha sido actualizado, podrás modificarlo pulsando Modificar campos. Si sigues teniendo dudas envianos tu pregunta a devoirs@gmail.com .',
-    buttons: ['Dismiss']
-  });
-  alert.present();
-}
-
+ 
  editarPerfil() {
   let alert = this.alertCtrl.create({
     title: 'Edita tus datos',
@@ -93,7 +83,7 @@ export class PerfilPage {
 					datoscliente.nombre=data.nombre;
 				}
 				datoscliente.contraseña=list[icliente].contraseña;
-
+				
 				if(data.email == null)
 				{
 					datoscliente.correo=list[icliente].correo;
@@ -110,7 +100,7 @@ export class PerfilPage {
 				{
 					datoscliente.direccion=data.direccion;
 				}
-				datoscliente.gasto=list[icliente].gasto;
+				datoscliente.gasto=list[icliente].gasto;	
 			}
 			}
 			this.dbFirebase.guardaCliente(datoscliente);

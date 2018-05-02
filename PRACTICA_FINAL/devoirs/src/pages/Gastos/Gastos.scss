@@ -1,15 +1,108 @@
 page-gastos {
 
-  #buttonHelp{
-    width: 90%;
-    position: relative;
-    margin-left: 16px;
-    margin-right: 16px;
-    margin-bottom:5%;
-    float:left;
-    color:#000;
-    background-color: rgba(0, 0, 0,0);
+  .Gastos{
+  background:#fff3cc  !important;
+  position: absolute;
   }
 
+  .carrito{
+  background:#fff3cc  !important;
+  position: absolute;
+  }
+  .ayuda{
+  padding: 10% !important;
+  padding-top: 5% !important;
+  padding-bottom: 5% !important;
+  float:left;
+  text-align: center;
+  width: 100%;
+  }
+
+  .2bot{
+   margin-left: 50px;
+   margin-right: 50px;
+   float: left;
+   text-align: center;;
+
+  }
+  #add{
+    width: 3%;
+    margin: 0%;
+    padding: 0%;
+    font-size: 20px;
+    text-align: center;
+    float: left;
+    position: relative!important;
+  }
+  #concept{
+    width: 100%;
+    padding-top: 3%;
+  }
+  #aña{
+    width: 30%;
+    padding-top: 1%;
+    float: left;
+    font-size: 15px;
+    //text-align: center;
+    position: relative!important;
+  }
+
+  #fform{
+    width: 70%;
+    float: left;
+    position: relative!important;
+  }
+  #fform2{
+    width: 60px;
+    float: left;
+    position: relative!important;
+  }
+  input[type=search] {
+    width: 160px;
+    margin: 0;
+    border: 1px solid #DCDCDC;
+    border-radius: 1;
+    -webkit-appearance: none;
+  }
+  input[type=search3] {
+    width: 160px;
+    margin: 0;
+    border: 1px solid #DCDCDC;
+    border-radius: 1;
+    -webkit-appearance: none;
+  }
+  input[type=search2] {
+    width: 50px;
+    margin: 0;
+    border: 1px solid #DCDCDC;
+    border-radius: 1;
+    -webkit-appearance: none;
+  }
+  .logo-euro{
+    width: auto;
+    height: auto;
+  }
+  .add-rem{
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 10px;
+    background-color: white;
+    background-size: contain;
+    width: 90%;
+    float: left;
+    position: relative!important;
+  }
+  .botonInicio{
+    background:#F8D387 !important;
+  }
+  .buttonMod{
+    font-size: 15px;
+    margin-bottom:5%;
+    color: #FFF;
+    width: 100%;
+    position: relative;
+    float:left;
+    background-color: #74C8ED !important
+  }
 
 }

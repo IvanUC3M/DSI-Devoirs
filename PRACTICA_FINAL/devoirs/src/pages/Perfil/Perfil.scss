@@ -20,11 +20,23 @@ page-perfil{
   font-weight: bold;
 }
 .buu{
-  font-size: 15px;
-  margin-left: 20%;
+  font-size: 20px;
+  margin-left: 10%;
 }
 
-  #buttonMod{
+  .buttonHor{
+    font-size: 15px;
+    margin-top:5%;
+    margin-bottom:5%;
+    color: #FFF;
+    width: 100%;
+    position: relative;
+    float:left;
+    background-color: #74C8ED !important
+
+  }
+
+  .buttonMod{
     font-size: 15px;
     margin-bottom:5%;
     color: #FFF;
@@ -32,16 +44,6 @@ page-perfil{
     position: relative;
     float:left;
     background-color: #74C8ED !important
-  }
-  #buttonHelp{
-    width: 90%;
-    position: relative;
-    margin-left: 16px;
-    margin-right: 16px;
-    margin-bottom:5%;
-    float:left;
-    color:#000;
-    background-color: rgba(0, 0, 0,0);
   }
 
 .im{
