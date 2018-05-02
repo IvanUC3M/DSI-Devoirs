@@ -8,16 +8,17 @@ import {RegistroPage} from '../Registro/Registro';
   templateUrl: 'Principal.html'
 })
 export class PrincipalPage {
+	constructor(public navCtrl: NavController) 
+	{
 
-  constructor(public navCtrl: NavController) {
+	}
+	//Función para ir a la pagina de inicio sesión
+	irSesion(){
+		this.navCtrl.push(InicioSesionPage);
+	}
 
-  }
-irSesion(){
-    this.navCtrl.push(InicioSesionPage);
-  }
-
-irRegistrarse(){
-  this.navCtrl.push(RegistroPage);
-}
-
+	//Función para ir a la pagina de registro
+	irRegistrarse(){
+		this.navCtrl.push(RegistroPage);
+	}
 }

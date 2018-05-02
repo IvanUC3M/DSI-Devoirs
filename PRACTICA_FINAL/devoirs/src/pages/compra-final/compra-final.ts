@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
-import {CarritoPage} from "../Carrito/Carrito";
 import {NavController, NavParams} from 'ionic-angular';
 import {Cliente} from "../../models/cliente.model";
 /**
@@ -14,43 +13,42 @@ import {Cliente} from "../../models/cliente.model";
   templateUrl: 'compra-final.html',
 })
 export class CompraFinalPage {
-  compra: any;
-  listaClientes:any;
-  listaCompras:any;
-  clientId:any;
-  constructor(public navCtrl: NavController,public params: NavParams, public dbFirebase:FirebaseDbProvider) {
-	  	this.clientId = this.params.get('id');
-  }
+	compra: any;
+	listaClientes:any;
+	listaCompras:any;
+	clientId:any;
+	constructor(public navCtrl: NavController,public params: NavParams, public dbFirebase:FirebaseDbProvider) {
+		this.clientId = this.params.get('id');
+	}
+	 
+	//Función para sacar el cliente y compras de la base:
+	ionViewDidEnter()
+	{
+		this.dbFirebase.getClientes().subscribe(listaClientes=>{this.listaClientes=listaClientes;});
+		this.dbFirebase.getCompras().subscribe(listaCompras=>{this.listaCompras=listaCompras;}); 
+	}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CompraFinalPage');
-  }
-ionViewDidEnter()
- {
-	  this.dbFirebase.getClientes().subscribe(listaClientes=>{this.listaClientes=listaClientes;});
-	  this.dbFirebase.getCompras().subscribe(listaCompras=>{this.listaCompras=listaCompras;});
-	  
- }
-completarCompra(){
-    let datoscliente:Cliente=new Cliente();
-	for(var llist in this.listaClientes)
+	//Función para confirmar la compra:
+	completarCompra()
 	{
-		if(this.listaClientes[llist].id == this.clientId)
+		let datoscliente:Cliente=new Cliente();
+		for(var llist in this.listaClientes)
 		{
-			 datoscliente.id=this.listaClientes[llist].id;
-			 datoscliente.nombre=this.listaClientes[llist].nombre;
-			 datoscliente.contraseña=this.listaClientes[llist].contraseña;
-			 datoscliente.correo=this.listaClientes[llist].correo;
-			 datoscliente.direccion=this.listaClientes[llist].direccion;
-			 datoscliente.gasto=Number(this.listaClientes[llist].gasto)+Number(this.compra);
-			 this.dbFirebase.guardaCliente(datoscliente);
-			 
+			if(this.listaClientes[llist].id == this.clientId)
+			{
+				datoscliente.id=this.listaClientes[llist].id;
+				datoscliente.nombre=this.listaClientes[llist].nombre;
+				datoscliente.contraseña=this.listaClientes[llist].contraseña;
+				datoscliente.correo=this.listaClientes[llist].correo;
+				datoscliente.direccion=this.listaClientes[llist].direccion;
+				datoscliente.gasto=Number(this.listaClientes[llist].gasto)+Number(this.compra);
+				this.dbFirebase.guardaCliente(datoscliente);		 
+			}
 		}
-	}
-	for(var icompra in this.listaCompras)
-	{
+		for(var icompra in this.listaCompras)
+		{
 			this.dbFirebase.delCompra(this.listaCompras[icompra].id); 
+		}
+		this.navCtrl.pop();
 	}
-	this.navCtrl.pop();
-}
 }
