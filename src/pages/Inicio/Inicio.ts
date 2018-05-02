@@ -4,10 +4,7 @@ import {NotasServicios} from "../../servicios/notas.servicios";
 import {DetalleNotaPage} from "../detalle-nota/detalle-nota";
 import { TabsPage } from '../tabs/tabs';
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
-<<<<<<< HEAD
 import { AlertController } from 'ionic-angular';
-=======
->>>>>>> c49e1239a869325b7797c796e0a20c9a1e6d01e8
 
 @Component({
   selector: 'page-inicio',
@@ -41,7 +38,6 @@ currentDate: any;
   for(var i = prevNumOfDays-(firstDayThisMonth-1); i <= prevNumOfDays; i++) {
     this.daysInLastMonth.push(i);
   }
-<<<<<<< HEAD
 
   var thisNumOfDays = new Date(this.date.getFullYear(), this.date.getMonth()+1, 0).getDate();
   for (var ii = 0; ii < thisNumOfDays; ii++) {
@@ -58,24 +54,6 @@ currentDate: any;
       this.daysInNextMonth.push(iiii);
     }
   }
-=======
-
-  var thisNumOfDays = new Date(this.date.getFullYear(), this.date.getMonth()+1, 0).getDate();
-  for (var ii = 0; ii < thisNumOfDays; ii++) {
-    this.daysInThisMonth.push(ii+1);
-  }
-
-  var lastDayThisMonth = new Date(this.date.getFullYear(), this.date.getMonth()+1, 0).getDay();
-  for (var iii = 0; iii < (6-lastDayThisMonth); iii++) {
-    this.daysInNextMonth.push(iii+1);
-  }
-  var totalDays = this.daysInLastMonth.length+this.daysInThisMonth.length+this.daysInNextMonth.length;
-  if(totalDays<36) {
-    for(var iiii = (7-lastDayThisMonth); iiii < ((7-lastDayThisMonth)+7); iiii++) {
-      this.daysInNextMonth.push(iiii);
-    }
-  }
->>>>>>> c49e1239a869325b7797c796e0a20c9a1e6d01e8
 }
   goToLastMonth() {
   this.date = new Date(this.date.getFullYear(), this.date.getMonth(), 0);
@@ -86,19 +64,12 @@ goToNextMonth() {
   this.getDaysOfMonth();
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> c49e1239a869325b7797c796e0a20c9a1e6d01e8
 notas=[];
 listaNotas:any;
 
  @ViewChild('myNav') nav: NavController
-<<<<<<< HEAD
 constructor(public navCtrl: NavController, public navParams: NavParams, public notasServicio : NotasServicios, public dbFirebase:FirebaseDbProvider, private alertCtrl: AlertController) {
-=======
-constructor(public navCtrl: NavController, public navParams: NavParams, public notasServicio : NotasServicios, public dbFirebase:FirebaseDbProvider) {
->>>>>>> c49e1239a869325b7797c796e0a20c9a1e6d01e8
 this.notas=notasServicio.getNotas();
 
 
@@ -116,7 +87,6 @@ ionViewWillEnter()
 {
 	this.getDaysOfMonth();
 }
-<<<<<<< HEAD
 needHelp(){
  let alert = this.alertCtrl.create({
    title: '¿Necesitas ayuda?',
@@ -126,9 +96,6 @@ needHelp(){
  });
  alert.present();
 }
-=======
-
->>>>>>> c49e1239a869325b7797c796e0a20c9a1e6d01e8
 ionViewDidEnter()
 {
 	this.dbFirebase.getNotas().subscribe(listaNotas=>{this.notas=listaNotas;
